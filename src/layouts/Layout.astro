@@ -1,0 +1,151 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Chromoly Labs - Building Digital Products That Matter" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syncopate:wght@400;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<style>
+			[x-cloak] { display: none !important; }
+		</style>
+		<script is:inline src="//unpkg.com/alpinejs" defer></script>
+	</head>
+	<body class="bg-space-black text-starlight min-h-screen">
+		<div class="relative z-0">
+			<!-- Star field background -->
+			<div class="fixed inset-0 bg-star-field opacity-50 -z-20"></div>
+			<!-- Nebula effect -->
+			<div class="fixed inset-0 bg-gradient-radial from-nebula/5 via-transparent to-transparent -z-10"></div>
+			<!-- Content -->
+			<slot />
+		</div>
+		<style is:global>
+			@tailwind base;
+			@tailwind components;
+			@tailwind utilities;
+
+			@layer base {
+				html {
+					scroll-behavior: smooth;
+				}
+			}
+
+			.neon-text {
+				text-shadow: 0 0 10px theme('colors.neon'), 0 0 20px theme('colors.neon');
+			}
+
+			.plasma-glow {
+				text-shadow: 0 0 10px theme('colors.plasma'), 0 0 20px theme('colors.plasma');
+			}
+
+			.chrome-text {
+				background: linear-gradient(to right, theme('colors.chrome'), theme('colors.starlight'), theme('colors.chrome'));
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+			}
+
+			.space-gradient {
+				background: linear-gradient(45deg, theme('colors.cosmic-blue'), theme('colors.deep-space'));
+			}
+
+			.glitch {
+				position: relative;
+				text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
+							-0.025em -0.05em 0 theme('colors.cosmic-blue'),
+							0.025em 0.05em 0 theme('colors.plasma');
+				animation: glitch 500ms infinite;
+			}
+
+			@keyframes glitch {
+				0% {
+					text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
+								-0.05em -0.025em 0 theme('colors.cosmic-blue'),
+								-0.025em 0.05em 0 theme('colors.plasma');
+				}
+				14% {
+					text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
+								-0.05em -0.025em 0 theme('colors.cosmic-blue'),
+								-0.025em 0.05em 0 theme('colors.plasma');
+				}
+				15% {
+					text-shadow: -0.05em -0.025em 0 theme('colors.nasa-red'),
+								0.025em 0.025em 0 theme('colors.cosmic-blue'),
+								-0.05em -0.05em 0 theme('colors.plasma');
+				}
+				49% {
+					text-shadow: -0.05em -0.025em 0 theme('colors.nasa-red'),
+								0.025em 0.025em 0 theme('colors.cosmic-blue'),
+								-0.05em -0.05em 0 theme('colors.plasma');
+				}
+				50% {
+					text-shadow: 0.025em 0.05em 0 theme('colors.nasa-red'),
+								0.05em 0 0 theme('colors.cosmic-blue'),
+								0 -0.05em 0 theme('colors.plasma');
+				}
+				99% {
+					text-shadow: 0.025em 0.05em 0 theme('colors.nasa-red'),
+								0.05em 0 0 theme('colors.cosmic-blue'),
+								0 -0.05em 0 theme('colors.plasma');
+				}
+				100% {
+					text-shadow: -0.025em 0 0 theme('colors.nasa-red'),
+								-0.025em -0.025em 0 theme('colors.cosmic-blue'),
+								-0.025em -0.05em 0 theme('colors.plasma');
+				}
+			}
+
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-20px); }
+			}
+
+			.float {
+				animation: float 6s ease-in-out infinite;
+			}
+
+			@keyframes twinkle {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.3; }
+			}
+
+			.twinkle {
+				animation: twinkle 2s ease-in-out infinite;
+			}
+
+			.scanline {
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.scanline::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: repeating-linear-gradient(
+					0deg,
+					transparent 0%,
+					rgba(255, 255, 255, 0.05) 0.5%,
+					transparent 1%
+				);
+				animation: scan 8s linear infinite;
+			}
+
+			@keyframes scan {
+				from { transform: translateY(-100%); }
+				to { transform: translateY(100%); }
+			}
+		</style>
+	</body>
+</html>

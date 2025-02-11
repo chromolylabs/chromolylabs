@@ -1,0 +1,63 @@
+---
+// No props needed for now, but we can add them later if needed
+---
+
+<div class="fixed top-6 right-6 z-50">
+    <div class="relative" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
+        <button 
+            @click="isOpen = !isOpen"
+            @click.outside="isOpen = false"
+            class="relative px-4 sm:px-6 py-1.5 sm:py-2 border border-starlight/20 rounded-full backdrop-blur-sm
+            hover:border-plasma/50 transition-colors duration-300 cursor-pointer group">
+            <span class="font-mono text-xs sm:text-sm text-starlight/60 tracking-widest whitespace-nowrap">
+                MISSION STATUS: <span class="text-plasma">ACTIVE</span>
+            </span>
+            <div class="absolute top-1/2 -left-2 transform -translate-y-1/2 w-1.5 h-1.5 bg-plasma rounded-full animate-pulse"></div>
+            <span class="inline-block ml-2 transform transition-transform duration-200" :class="{ 'rotate-180': isOpen }">
+                <span class="text-plasma text-xs">▼</span>
+            </span>
+        </button>
+
+        <!-- Project Dropdown -->
+        <div 
+            x-cloak
+            x-show="isOpen"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 translate-y-2"
+            class="absolute right-0 top-full mt-4 w-72">
+            <div class="bg-space-black/90 backdrop-blur-md border border-starlight/10 rounded-lg p-4 shadow-xl">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-cyber text-sm text-plasma">ACTIVE MISSIONS</h3>
+                    <button @click="isOpen = false" class="text-starlight/60 hover:text-plasma transition-colors">
+                        <span class="sr-only">Close menu</span>
+                        <span class="text-xs">✕</span>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <a href="https://betterplane.app" target="_blank" rel="noopener noreferrer"
+                        class="block group hover:bg-plasma/5 p-2 rounded-md transition-colors active:bg-plasma/10">
+                        <div class="flex items-center justify-between">
+                            <span class="font-tech text-sm text-starlight">BetterPlane.app</span>
+                            <span class="text-plasma opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        </div>
+                        <p class="font-mono text-xs text-starlight/60 mt-1">Digital Aircraft Logbooks</p>
+                    </a>
+                    <a href="https://ad-search.site" target="_blank" rel="noopener noreferrer"
+                        class="block group hover:bg-plasma/5 p-2 rounded-md transition-colors active:bg-plasma/10">
+                        <div class="flex items-center justify-between">
+                            <span class="font-tech text-sm text-starlight">ad-search.site</span>
+                            <span class="text-plasma opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                        </div>
+                        <p class="font-mono text-xs text-starlight/60 mt-1">FAA Airworthiness Directives Search</p>
+                    </a>
+                </div>
+            </div>
+            <!-- Decorative triangle -->
+            <div class="absolute -top-2 right-6 w-4 h-4 bg-space-black/90 border-l border-t border-starlight/10 transform rotate-45"></div>
+        </div>
+    </div>
+</div> 
