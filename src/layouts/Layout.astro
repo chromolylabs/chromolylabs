@@ -3,6 +3,7 @@ interface Props {
 	title: string;
 }
 
+import '../styles/fonts.css';
 const { title } = Astro.props;
 const basePath = import.meta.env.BASE_URL;
 ---
@@ -17,14 +18,19 @@ const basePath = import.meta.env.BASE_URL;
 			<meta http-equiv="refresh" content="0;url=https://chromolylabs.com" />
 		}
 		<link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
-		<!-- Local fonts -->
-		<link rel="stylesheet" href="/styles/fonts.css">
 		<meta name="generator" content={Astro.generator} />
+		<!-- Preload fonts -->
+		<link rel="preload" href="/fonts/SpaceGrotesk-Light.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/SpaceGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/ShareTechMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin />
 		<title>{title}</title>
 		<style>
 			[x-cloak] { display: none !important; }
 		</style>
-		<script is:inline src="//unpkg.com/alpinejs" defer></script>
+		<script is:inline src="https://unpkg.com/alpinejs" defer></script>
 	</head>
 	<body class="bg-space-black text-starlight min-h-screen">
 		<div class="relative z-0">
@@ -47,67 +53,72 @@ const basePath = import.meta.env.BASE_URL;
 			}
 
 			.neon-text {
-				text-shadow: 0 0 10px theme('colors.neon'), 0 0 20px theme('colors.neon');
+				text-shadow: 0 0 10px theme("colors.neon"), 0 0 20px theme("colors.neon");
 			}
 
 			.plasma-glow {
-				text-shadow: 0 0 10px theme('colors.plasma'), 0 0 20px theme('colors.plasma');
+				text-shadow: 0 0 10px theme("colors.plasma"), 0 0 20px theme("colors.plasma");
 			}
 
 			.chrome-text {
-				background: linear-gradient(to right, theme('colors.chrome'), theme('colors.starlight'), theme('colors.chrome'));
+				background: linear-gradient(to right, 
+					theme("colors.chrome"), 
+					theme("colors.starlight"), 
+					theme("colors.chrome"));
 				-webkit-background-clip: text;
 				background-clip: text;
 				color: transparent;
+				text-shadow: 0 0 8px theme("colors.chrome/3"),
+							0 0 16px theme("colors.chrome/0.5");
 			}
 
 			.space-gradient {
-				background: linear-gradient(45deg, theme('colors.cosmic-blue'), theme('colors.deep-space'));
+				background: linear-gradient(45deg, theme("colors.cosmic-blue"), theme("colors.deep-space"));
 			}
 
 			.glitch {
 				position: relative;
-				text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
-							-0.025em -0.05em 0 theme('colors.cosmic-blue'),
-							0.025em 0.05em 0 theme('colors.plasma');
+				text-shadow: 0.05em 0 0 theme("colors.nasa-red"), 
+							-0.025em -0.05em 0 theme("colors.cosmic-blue"),
+							0.025em 0.05em 0 theme("colors.plasma");
 				animation: glitch 500ms infinite;
 			}
 
 			@keyframes glitch {
 				0% {
-					text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
-								-0.05em -0.025em 0 theme('colors.cosmic-blue'),
-								-0.025em 0.05em 0 theme('colors.plasma');
+					text-shadow: 0.05em 0 0 theme("colors.nasa-red"), 
+								-0.05em -0.025em 0 theme("colors.cosmic-blue"),
+								-0.025em 0.05em 0 theme("colors.plasma");
 				}
 				14% {
-					text-shadow: 0.05em 0 0 theme('colors.nasa-red'), 
-								-0.05em -0.025em 0 theme('colors.cosmic-blue'),
-								-0.025em 0.05em 0 theme('colors.plasma');
+					text-shadow: 0.05em 0 0 theme("colors.nasa-red"), 
+								-0.05em -0.025em 0 theme("colors.cosmic-blue"),
+								-0.025em 0.05em 0 theme("colors.plasma");
 				}
 				15% {
-					text-shadow: -0.05em -0.025em 0 theme('colors.nasa-red'),
-								0.025em 0.025em 0 theme('colors.cosmic-blue'),
-								-0.05em -0.05em 0 theme('colors.plasma');
+					text-shadow: -0.05em -0.025em 0 theme("colors.nasa-red"),
+								0.025em 0.025em 0 theme("colors.cosmic-blue"),
+								-0.05em -0.05em 0 theme("colors.plasma");
 				}
 				49% {
-					text-shadow: -0.05em -0.025em 0 theme('colors.nasa-red'),
-								0.025em 0.025em 0 theme('colors.cosmic-blue'),
-								-0.05em -0.05em 0 theme('colors.plasma');
+					text-shadow: -0.05em -0.025em 0 theme("colors.nasa-red"),
+								0.025em 0.025em 0 theme("colors.cosmic-blue"),
+								-0.05em -0.05em 0 theme("colors.plasma");
 				}
 				50% {
-					text-shadow: 0.025em 0.05em 0 theme('colors.nasa-red'),
-								0.05em 0 0 theme('colors.cosmic-blue'),
-								0 -0.05em 0 theme('colors.plasma');
+					text-shadow: 0.025em 0.05em 0 theme("colors.nasa-red"),
+								0.05em 0 0 theme("colors.cosmic-blue"),
+								0 -0.05em 0 theme("colors.plasma");
 				}
 				99% {
-					text-shadow: 0.025em 0.05em 0 theme('colors.nasa-red'),
-								0.05em 0 0 theme('colors.cosmic-blue'),
-								0 -0.05em 0 theme('colors.plasma');
+					text-shadow: 0.025em 0.05em 0 theme("colors.nasa-red"),
+								0.05em 0 0 theme("colors.cosmic-blue"),
+								0 -0.05em 0 theme("colors.plasma");
 				}
 				100% {
-					text-shadow: -0.025em 0 0 theme('colors.nasa-red'),
-								-0.025em -0.025em 0 theme('colors.cosmic-blue'),
-								-0.025em -0.05em 0 theme('colors.plasma');
+					text-shadow: -0.025em 0 0 theme("colors.nasa-red"),
+								-0.025em -0.025em 0 theme("colors.cosmic-blue"),
+								-0.025em -0.05em 0 theme("colors.plasma");
 				}
 			}
 
@@ -150,6 +161,42 @@ const basePath = import.meta.env.BASE_URL;
 			@keyframes scan {
 				from { transform: translateY(-100%); }
 				to { transform: translateY(100%); }
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.fade-in-up {
+				opacity: 0;
+				animation: fadeInUp 0.6s ease-out forwards;
+			}
+
+			.delay-100 {
+				animation-delay: 100ms;
+			}
+
+			.delay-200 {
+				animation-delay: 200ms;
+			}
+
+			.delay-300 {
+				animation-delay: 300ms;
+			}
+
+			.delay-400 {
+				animation-delay: 400ms;
+			}
+
+			.delay-500 {
+				animation-delay: 500ms;
 			}
 		</style>
 	</body>

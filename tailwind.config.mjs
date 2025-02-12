@@ -16,12 +16,14 @@ export default {
         'plasma': '#00f6ff',    // Neon blue glow
       },
       fontFamily: {
-        'cyber': ['Orbitron', 'sans-serif'],
-        'nasa': ['Cinzel', 'serif'],
+        'cyber': ['Space Grotesk', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
         'tech': ['Share Tech Mono', 'monospace'],
-        'sync': ['Syncopate', 'sans-serif'],
-        'raj': ['Rajdhani', 'sans-serif'],
+      },
+      fontWeight: {
+        'cyber-light': '300',
+        'cyber-normal': '400',
+        'cyber-medium': '500',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

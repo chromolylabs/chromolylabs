@@ -2,31 +2,50 @@
 // No props needed for now
 ---
 
-<div class="relative z-10 text-center max-w-4xl mx-auto">
-    <!-- Enhanced mission patch -->
-    <div class="mx-auto mb-12 w-28 h-28 md:w-32 md:h-32 rounded-full space-gradient flex items-center justify-center border-2 border-chrome shadow-lg transform hover:scale-105 transition-transform duration-300">
-        <span class="font-cyber text-3xl md:text-4xl text-starlight">CL</span>
+<div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Enhanced mission patch with stronger 3D effect -->
+    <div class="mx-auto mb-12 w-28 h-28 md:w-32 md:h-32 rounded-full space-gradient flex items-center justify-center border-2 border-chrome/80 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-300 relative overflow-hidden fade-in-up ring-2 ring-chrome/30 ring-offset-4 ring-offset-transparent">
+        <!-- Border glow effect -->
+        <div class="absolute -inset-[1px] rounded-full bg-chrome/20 blur-[2px]"></div>
+        <!-- Base gradient overlay for depth -->
+        <div class="absolute inset-0 bg-gradient-radial from-cosmic-blue/80 via-deep-space/80 to-deep-space/95 scale-150"></div>
+        <!-- Inner shadow effect -->
+        <div class="absolute inset-0 bg-gradient-radial from-transparent via-space-black/40 to-space-black/60 scale-125"></div>
+        <!-- Deep inner glow -->
+        <div class="absolute inset-0 bg-gradient-radial from-cosmic-blue/30 via-transparent to-transparent scale-50"></div>
+        <!-- Subtle top highlight for sphere effect -->
+        <div class="absolute inset-x-0 -top-1/2 h-full bg-gradient-to-b from-starlight/10 via-starlight/5 to-transparent transform scale-y-50"></div>
+        <!-- Side highlight -->
+        <div class="absolute -right-1/4 inset-y-0 w-1/2 bg-gradient-to-l from-starlight/5 via-transparent to-transparent"></div>
+        <!-- Bottom shadow for depth -->
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-space-black/70 via-space-black/40 to-transparent"></div>
+        <!-- Glass reflection overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-starlight/5 to-transparent opacity-50"></div>
+        <!-- Text with enhanced shadow -->
+        <span class="font-cyber text-4xl md:text-5xl text-starlight/90 relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">CL</span>
     </div>
 
-    <h1 class="font-cyber text-5xl md:text-7xl lg:text-8xl mb-8 chrome-text tracking-wider transform hover:scale-[1.02] transition-transform duration-300">
+    <h1 class="font-cyber text-5xl md:text-7xl lg:text-8xl mb-8 chrome-text tracking-wider transform hover:scale-[1.02] transition-transform duration-300 drop-shadow-[0_0_4px_rgba(212,175,55,0.05)] drop-shadow-[0_0_6px_rgba(212,175,55,0.01)] fade-in-up delay-200">
         CHROMOLY LABS
     </h1>
 
     <!-- Subtitle with improved styling -->
-    <div class="mb-12">
-        <p class="font-tech text-xl md:text-2xl glitch tracking-widest inline-block transform hover:scale-105 transition-transform duration-300">
+    <div class="mb-12 fade-in-up delay-300">
+        <p class="font-tech text-xl md:text-2xl glitch tracking-widest inline-block transform hover:scale-105 transition-transform duration-300 text-starlight/80">
             Building Digital Products That Matter.
         </p>
     </div>
 
     <!-- Description with improved readability -->
-    <p class="font-tech text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 text-starlight/90 leading-relaxed">
-        We build badass digital products that solve real problems for real people.
-        From mobile apps to data engineering, we craft solutions that matter.
-    </p>
+    <div class="font-mono text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-12 text-starlight/70 leading-relaxed fade-in-up delay-400">
+        <p class="mb-4">
+            We build badass digital products that solve real problems for real people.
+            From mobile apps to data engineering, we craft solutions that matter.
+        </p>
+    </div>
 
     <!-- Enhanced CTA button with comet streak -->
-    <div class="group relative">
+    <div class="group relative fade-in-up delay-500">
         <button 
             x-data
             @click="$dispatch('open-modal')"

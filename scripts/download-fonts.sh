@@ -3,8 +3,10 @@
 # Create fonts directory if it doesn't exist
 mkdir -p public/fonts
 
-# Download Orbitron variable font
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJepKI6W3o_XVa3I6jDxZbCWZk.woff2" -o public/fonts/Orbitron-Variable.woff2
+# Download Space Grotesk fonts
+curl -L "https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXskPMBBSSJLm2E.woff2" -o public/fonts/SpaceGrotesk-Light.woff2
+curl -L "https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7aUXskPMBBSSJLm2E.woff2" -o public/fonts/SpaceGrotesk-Regular.woff2
+curl -L "https://fonts.gstatic.com/s/spacegrotesk/v15/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7PUXskPMBBSSJLm2E.woff2" -o public/fonts/SpaceGrotesk-Medium.woff2
 
 # Download Share Tech Mono font
 curl -L "https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2" -o public/fonts/ShareTechMono-Regular.woff2

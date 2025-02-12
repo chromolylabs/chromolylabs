@@ -8,13 +8,22 @@
             @click="isOpen = !isOpen"
             @click.outside="isOpen = false"
             class="relative px-4 sm:px-6 py-1.5 sm:py-2 border border-starlight/20 rounded-full backdrop-blur-sm
-            hover:border-plasma/50 transition-colors duration-300 cursor-pointer group">
-            <span class="font-mono text-xs sm:text-sm text-starlight/60 tracking-widest whitespace-nowrap">
-                MISSION STATUS: <span class="text-plasma">ACTIVE</span>
+            hover:border-plasma/50 transition-all duration-300 group
+            active:scale-95 active:bg-plasma/5">
+            <!-- Pulsing background effect -->
+            <div class="absolute inset-0 bg-plasma/5 rounded-full animate-[pulse_2s_ease-in-out_infinite]"></div>
+            
+            <span class="font-mono text-xs sm:text-sm text-starlight/60 tracking-widest whitespace-nowrap relative">
+                MISSION STATUS: <span class="text-plasma animate-[pulse_2s_ease-in-out_infinite]">ACTIVE</span>
             </span>
-            <div class="absolute top-1/2 -left-2 transform -translate-y-1/2 w-1.5 h-1.5 bg-plasma rounded-full animate-pulse"></div>
+            <!-- Enhanced pulsing dot -->
+            <div class="absolute top-1/2 -left-2 transform -translate-y-1/2">
+                <div class="w-1.5 h-1.5 bg-plasma rounded-full animate-pulse"></div>
+                <div class="absolute inset-0 bg-plasma rounded-full animate-ping opacity-75"></div>
+            </div>
+            <!-- Enhanced dropdown indicator -->
             <span class="inline-block ml-2 transform transition-transform duration-200" :class="{ 'rotate-180': isOpen }">
-                <span class="text-plasma text-xs">▼</span>
+                <span class="text-plasma text-xs animate-[pulse_2s_ease-in-out_infinite] opacity-75">▼</span>
             </span>
         </button>
 
