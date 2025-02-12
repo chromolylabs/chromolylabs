@@ -6,7 +6,6 @@ interface Props {
 import '../styles/fonts.css';
 import Haptics from '../components/Haptics.astro';
 const { title } = Astro.props;
-const basePath = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -22,15 +21,13 @@ const basePath = import.meta.env.BASE_URL;
 		{import.meta.env.PROD && Astro.url.protocol === 'http:' && 
 			<meta http-equiv="refresh" content="0;url=https://chromolylabs.com" />
 		}
-		<link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<!-- Preload fonts -->
-		<link rel="preload" href="/fonts/SpaceGrotesk-Light.woff2" as="font" type="font/woff2" crossorigin />
+		<!-- Preload critical fonts -->
 		<link rel="preload" href="/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/SpaceGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/ShareTechMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin />
 		<title>{title}</title>
 		<script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js" defer></script>
 		<Haptics />
