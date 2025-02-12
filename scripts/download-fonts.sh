@@ -4,10 +4,10 @@
 mkdir -p public/fonts
 
 # Download Orbitron fonts
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6xpmIyXjU1pg.woff2" -o public/fonts/Orbitron-Regular.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWIyXjU1pg.woff2" -o public/fonts/Orbitron-Medium.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6Xp2IyXjU1pg.woff2" -o public/fonts/Orbitron-SemiBold.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6XpmIyXjU1pg.woff2" -o public/fonts/Orbitron-Bold.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1ny.woff2" -o public/fonts/Orbitron-Regular.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1nY.woff2" -o public/fonts/Orbitron-Medium.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1ng.woff2" -o public/fonts/Orbitron-SemiBold.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1nk.woff2" -o public/fonts/Orbitron-Bold.woff2
 
 # Download Share Tech Mono font
 curl -L "https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2" -o public/fonts/ShareTechMono-Regular.woff2
