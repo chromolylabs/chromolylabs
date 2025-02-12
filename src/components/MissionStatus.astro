@@ -1,11 +1,12 @@
 ---
 // No props needed for now, but we can add them later if needed
+import { haptics } from '../utils/haptics';
 ---
 
 <div class="fixed top-6 right-6 z-50">
     <div class="relative" x-data="{ isOpen: false }" @keydown.escape="isOpen = false">
         <button 
-            @click="isOpen = !isOpen"
+            @click="isOpen = !isOpen; window.haptics?.light()"
             @click.outside="isOpen = false"
             class="relative px-4 sm:px-6 py-1.5 sm:py-2 border border-starlight/20 rounded-full backdrop-blur-sm
             hover:border-plasma/50 transition-all duration-300 group
@@ -41,13 +42,14 @@
             <div class="bg-space-black/90 backdrop-blur-md border border-starlight/10 rounded-lg p-4 shadow-xl">
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="font-cyber text-sm text-plasma">ACTIVE MISSIONS</h3>
-                    <button @click="isOpen = false" class="text-starlight/60 hover:text-plasma transition-colors">
+                    <button @click="isOpen = false; window.haptics?.light()" class="text-starlight/60 hover:text-plasma transition-colors">
                         <span class="sr-only">Close menu</span>
                         <span class="text-xs">✕</span>
                     </button>
                 </div>
                 <div class="space-y-4">
                     <a href="https://betterplane.app" target="_blank" rel="noopener noreferrer"
+                        @click="window.haptics?.medium()"
                         class="block group hover:bg-plasma/5 p-2 rounded-md transition-colors active:bg-plasma/10">
                         <div class="flex items-center justify-between">
                             <span class="font-tech text-sm text-starlight">BetterPlane.app</span>
@@ -56,6 +58,7 @@
                         <p class="font-mono text-xs text-starlight/60 mt-1">Digital Aircraft Logbooks</p>
                     </a>
                     <a href="https://ad-search.site" target="_blank" rel="noopener noreferrer"
+                        @click="window.haptics?.medium()"
                         class="block group hover:bg-plasma/5 p-2 rounded-md transition-colors active:bg-plasma/10">
                         <div class="flex items-center justify-between">
                             <span class="font-tech text-sm text-starlight">ad-search.site</span>
@@ -69,4 +72,9 @@
             <div class="absolute -top-2 right-6 w-4 h-4 bg-space-black/90 border-l border-t border-starlight/10 transform rotate-45"></div>
         </div>
     </div>
-</div> 
+</div>
+
+<script>
+    // Make haptics available globally
+    window.haptics = await import('../utils/haptics').then(m => m.haptics);
+</script> 

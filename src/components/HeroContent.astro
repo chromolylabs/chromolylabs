@@ -1,29 +1,12 @@
 ---
+import MissionPatch from './MissionPatch.astro';
+import ContactModal from './ContactModal.astro';
+import CometButton from './CometButton.astro';
 // No props needed for now
 ---
 
 <div class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Enhanced mission patch with stronger 3D effect -->
-    <div class="mx-auto mb-12 w-28 h-28 md:w-32 md:h-32 rounded-full space-gradient flex items-center justify-center border-2 border-chrome/80 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-300 relative overflow-hidden fade-in-up ring-2 ring-chrome/30 ring-offset-4 ring-offset-transparent">
-        <!-- Border glow effect -->
-        <div class="absolute -inset-[1px] rounded-full bg-chrome/20 blur-[2px]"></div>
-        <!-- Base gradient overlay for depth -->
-        <div class="absolute inset-0 bg-gradient-radial from-cosmic-blue/80 via-deep-space/80 to-deep-space/95 scale-150"></div>
-        <!-- Inner shadow effect -->
-        <div class="absolute inset-0 bg-gradient-radial from-transparent via-space-black/40 to-space-black/60 scale-125"></div>
-        <!-- Deep inner glow -->
-        <div class="absolute inset-0 bg-gradient-radial from-cosmic-blue/30 via-transparent to-transparent scale-50"></div>
-        <!-- Subtle top highlight for sphere effect -->
-        <div class="absolute inset-x-0 -top-1/2 h-full bg-gradient-to-b from-starlight/10 via-starlight/5 to-transparent transform scale-y-50"></div>
-        <!-- Side highlight -->
-        <div class="absolute -right-1/4 inset-y-0 w-1/2 bg-gradient-to-l from-starlight/5 via-transparent to-transparent"></div>
-        <!-- Bottom shadow for depth -->
-        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-space-black/70 via-space-black/40 to-transparent"></div>
-        <!-- Glass reflection overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-starlight/5 to-transparent opacity-50"></div>
-        <!-- Text with enhanced shadow -->
-        <span class="font-cyber text-4xl md:text-5xl text-starlight/90 relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">CL</span>
-    </div>
+    <MissionPatch className="mb-12" />
 
     <h1 class="font-cyber text-5xl md:text-7xl lg:text-8xl mb-8 chrome-text tracking-wider transform hover:scale-[1.02] transition-transform duration-300 drop-shadow-[0_0_4px_rgba(212,175,55,0.05)] drop-shadow-[0_0_6px_rgba(212,175,55,0.01)] fade-in-up delay-200">
         CHROMOLY LABS
@@ -44,78 +27,6 @@
         </p>
     </div>
 
-    <!-- Enhanced CTA button with comet streak -->
-    <div class="group relative fade-in-up delay-500">
-        <button 
-            x-data
-            @click="$dispatch('open-modal')"
-            class="inline-block bg-transparent border-2 border-plasma text-plasma group-hover:bg-plasma/10 
-            font-cyber px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 plasma-glow tracking-widest
-            transform hover:scale-105 hover:border-opacity-80 relative overflow-hidden text-sm sm:text-base">
-            <span class="relative z-10">INITIATE CONTACT</span>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-plasma via-transparent to-plasma transition-opacity duration-300"></div>
-        </button>
-        
-        <!-- Vertical comet streak -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 top-full mt-2">
-            <div class="w-px h-16 sm:h-24 bg-gradient-to-b from-plasma to-transparent opacity-50"></div>
-            <div class="w-0.5 h-4 bg-plasma rounded-full blur-sm absolute -top-1 left-1/2 transform -translate-x-1/2 animate-pulse"></div>
-        </div>
-    </div>
-
-    <!-- Contact Form Modal -->
-    <div x-data="{ isOpen: false }" 
-         @open-modal.window="isOpen = true"
-         @keydown.escape.window="isOpen = false"
-         x-show="isOpen" 
-         class="fixed inset-0 z-50 overflow-y-auto" 
-         x-cloak>
-        <!-- Backdrop -->
-        <div class="fixed inset-0 bg-space-black/80 backdrop-blur-sm" @click="isOpen = false"></div>
-        
-        <!-- Modal -->
-        <div class="relative min-h-screen flex items-center justify-center p-4">
-            <div class="relative bg-deep-space border border-plasma/20 rounded-lg max-w-lg w-full p-6 sm:p-8 shadow-xl transform transition-all"
-                 @click.stop>
-                <!-- Close button -->
-                <button @click="isOpen = false" class="absolute top-4 right-4 text-starlight/60 hover:text-plasma">
-                    <span class="sr-only">Close</span>
-                    <span class="text-xl">×</span>
-                </button>
-
-                <!-- Form Header -->
-                <h3 class="font-cyber text-xl mb-6 text-plasma">TRANSMISSION INTERFACE</h3>
-
-                <!-- Contact Form -->
-                <form action="https://formspree.io/f/mqaedbag" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block font-mono text-sm text-starlight/80 mb-1" for="name">NAME</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
-                                      focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
-                                      font-mono text-sm">
-                    </div>
-                    <div>
-                        <label class="block font-mono text-sm text-starlight/80 mb-1" for="email">EMAIL</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
-                                      focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
-                                      font-mono text-sm">
-                    </div>
-                    <div>
-                        <label class="block font-mono text-sm text-starlight/80 mb-1" for="message">MESSAGE</label>
-                        <textarea id="message" name="message" rows="4" required
-                                  class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
-                                         focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
-                                         font-mono text-sm"></textarea>
-                    </div>
-                    <button type="submit" 
-                            class="w-full bg-plasma/10 border border-plasma text-plasma hover:bg-plasma/20 
-                                   font-cyber px-6 py-3 rounded transition-colors duration-300">
-                        TRANSMIT MESSAGE
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
+    <CometButton text="INITIATE CONTACT" className="delay-500" />
+    <ContactModal />
 </div> 

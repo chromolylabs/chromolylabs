@@ -1,0 +1,64 @@
+---
+import { haptics } from '../utils/haptics';
+// No props needed for now
+---
+
+<div x-data="{ isOpen: false }" 
+     @open-modal.window="isOpen = true; window.haptics?.medium()"
+     @keydown.escape.window="isOpen = false"
+     x-show="isOpen" 
+     class="fixed inset-0 z-50 overflow-y-auto" 
+     x-cloak>
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-space-black/80 backdrop-blur-sm" @click="isOpen = false; window.haptics?.light()"></div>
+    
+    <!-- Modal -->
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div class="relative bg-deep-space border border-plasma/20 rounded-lg max-w-lg w-full p-6 sm:p-8 shadow-xl transform transition-all"
+             @click.stop>
+            <!-- Close button -->
+            <button @click="isOpen = false; window.haptics?.light()" class="absolute top-4 right-4 text-starlight/60 hover:text-plasma">
+                <span class="sr-only">Close</span>
+                <span class="text-xl">×</span>
+            </button>
+
+            <!-- Form Header -->
+            <h3 class="font-cyber text-xl mb-6 text-plasma">TRANSMISSION INTERFACE</h3>
+
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/mqaedbag" method="POST" class="space-y-4" @submit="window.haptics?.success()">
+                <div>
+                    <label class="block font-mono text-sm text-starlight/80 mb-1" for="name">NAME</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
+                                  focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
+                                  font-mono text-sm">
+                </div>
+                <div>
+                    <label class="block font-mono text-sm text-starlight/80 mb-1" for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
+                                  focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
+                                  font-mono text-sm">
+                </div>
+                <div>
+                    <label class="block font-mono text-sm text-starlight/80 mb-1" for="message">MESSAGE</label>
+                    <textarea id="message" name="message" rows="4" required
+                              class="w-full bg-space-black/50 border border-starlight/20 rounded px-3 py-2 text-starlight/90 
+                                     focus:border-plasma focus:ring-1 focus:ring-plasma outline-none transition-colors
+                                     font-mono text-sm"></textarea>
+                </div>
+                <button type="submit" 
+                        class="w-full bg-plasma/10 border border-plasma text-plasma hover:bg-plasma/20 
+                               font-cyber px-6 py-3 rounded transition-colors duration-300">
+                    TRANSMIT MESSAGE
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Make haptics available globally
+    window.haptics = await import('../utils/haptics').then(m => m.haptics);
+</script> 

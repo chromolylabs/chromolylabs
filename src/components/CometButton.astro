@@ -1,0 +1,34 @@
+---
+import { haptics } from '../utils/haptics';
+
+interface Props {
+    text: string;
+    onClick?: string;
+    className?: string;
+}
+
+const { text, onClick = "$dispatch('open-modal')", className = '' } = Astro.props;
+---
+
+<div class={`group relative fade-in-up ${className}`}>
+    <button 
+        x-data
+        @click={`${onClick}; window.haptics?.medium()`}
+        class="inline-block bg-transparent border-2 border-plasma text-plasma group-hover:bg-plasma/10 
+        font-cyber px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 plasma-glow tracking-widest
+        transform hover:scale-105 hover:border-opacity-80 relative overflow-hidden text-sm sm:text-base">
+        <span class="relative z-10">{text}</span>
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-plasma via-transparent to-plasma transition-opacity duration-300"></div>
+    </button>
+    
+    <!-- Vertical comet streak -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 top-full mt-2">
+        <div class="w-px h-16 sm:h-24 bg-gradient-to-b from-plasma to-transparent opacity-50"></div>
+        <div class="w-0.5 h-4 bg-plasma rounded-full blur-sm absolute -top-1 left-1/2 transform -translate-x-1/2 animate-pulse"></div>
+    </div>
+</div>
+
+<script>
+    // Make haptics available globally
+    window.haptics = await import('../utils/haptics').then(m => m.haptics);
+</script> 
