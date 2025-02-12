@@ -12,6 +12,10 @@ const basePath = import.meta.env.BASE_URL;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<!-- Critical styles - Must load first -->
+		<style>
+			[x-cloak] { display: none !important; }
+		</style>
 		<meta name="description" content="Chromoly Labs - Building Digital Products That Matter" />
 		<meta name="viewport" content="width=device-width" />
 		{import.meta.env.PROD && Astro.url.protocol === 'http:' && 
@@ -27,10 +31,7 @@ const basePath = import.meta.env.BASE_URL;
 		<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin />
 		<title>{title}</title>
-		<style>
-			[x-cloak] { display: none !important; }
-		</style>
-		<script is:inline src="https://unpkg.com/alpinejs" defer></script>
+		<script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js" defer></script>
 	</head>
 	<body class="bg-space-black text-starlight min-h-screen">
 		<div class="relative z-0">

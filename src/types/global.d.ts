@@ -1,4 +1,4 @@
-interface Haptics {
+export interface Haptics {
     light: () => void;
     medium: () => void;
     strong: () => void;
@@ -10,4 +10,6 @@ declare global {
     interface Window {
         haptics?: Haptics;
     }
-} 
+}
+
+export { }; 

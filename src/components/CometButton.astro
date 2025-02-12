@@ -1,5 +1,5 @@
 ---
-import { haptics } from '../utils/haptics';
+import '../utils/initHaptics';
 
 interface Props {
     text: string;
@@ -26,9 +26,4 @@ const { text, onClick = "$dispatch('open-modal')", className = '' } = Astro.prop
         <div class="w-px h-16 sm:h-24 bg-gradient-to-b from-plasma to-transparent opacity-50"></div>
         <div class="w-0.5 h-4 bg-plasma rounded-full blur-sm absolute -top-1 left-1/2 transform -translate-x-1/2 animate-pulse"></div>
     </div>
-</div>
-
-<script>
-    // Make haptics available globally
-    window.haptics = await import('../utils/haptics').then(m => m.haptics);
-</script> 
+</div> 

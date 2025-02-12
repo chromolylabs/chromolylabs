@@ -1,6 +1,5 @@
 ---
-// No props needed for now, but we can add them later if needed
-import { haptics } from '../utils/haptics';
+import '../utils/initHaptics';
 ---
 
 <div class="fixed top-6 right-6 z-50">
@@ -72,9 +71,4 @@ import { haptics } from '../utils/haptics';
             <div class="absolute -top-2 right-6 w-4 h-4 bg-space-black/90 border-l border-t border-starlight/10 transform rotate-45"></div>
         </div>
     </div>
-</div>
-
-<script>
-    // Make haptics available globally
-    window.haptics = await import('../utils/haptics').then(m => m.haptics);
-</script> 
+</div> 
