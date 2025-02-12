@@ -3,11 +3,11 @@
 # Create fonts directory if it doesn't exist
 mkdir -p public/fonts
 
-# Download Orbitron fonts
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1ny.woff2" -o public/fonts/Orbitron-Regular.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1nY.woff2" -o public/fonts/Orbitron-Medium.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1ng.woff2" -o public/fonts/Orbitron-SemiBold.woff2
-curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJRMIlzdpvBhQQL_SC3X9yhF25-T1nk.woff2" -o public/fonts/Orbitron-Bold.woff2
+# Download Orbitron fonts (using variable font version)
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJlPIZbZDysHwqHWkCp0JtnKIysCgE.woff2" -o public/fonts/Orbitron-Regular.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJlPIZbZDysHwqHWkCp0JtnKIysCgE.woff2" -o public/fonts/Orbitron-Medium.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJlPIZbZDysHwqHWkCp0JtnKIysCgE.woff2" -o public/fonts/Orbitron-SemiBold.woff2
+curl -L "https://fonts.gstatic.com/s/orbitron/v31/yMJlPIZbZDysHwqHWkCp0JtnKIysCgE.woff2" -o public/fonts/Orbitron-Bold.woff2
 
 # Download Share Tech Mono font
 curl -L "https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2" -o public/fonts/ShareTechMono-Regular.woff2
