@@ -5,7 +5,6 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://chromolylabs.com',
-  base: '/chromolylabs',
   output: 'static',
   integrations: [tailwind()],
   build: {
