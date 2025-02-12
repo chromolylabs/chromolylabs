@@ -1,0 +1,48 @@
+---
+// Client-side haptics component
+---
+
+<script>
+    // Check if vibration is supported
+    const hasHaptics = () => {
+        return 'vibrate' in navigator;
+    };
+
+    // Different haptic patterns
+    window.haptics = {
+        // Light tap for regular button presses
+        light: () => {
+            if (hasHaptics()) {
+                navigator.vibrate(10);
+            }
+        },
+
+        // Medium feedback for opening/closing modals
+        medium: () => {
+            if (hasHaptics()) {
+                navigator.vibrate(15);
+            }
+        },
+
+        // Strong feedback for form submission
+        strong: () => {
+            if (hasHaptics()) {
+                navigator.vibrate([20, 10, 20]);
+            }
+        },
+
+        // Success pattern
+        success: () => {
+            if (hasHaptics()) {
+                navigator.vibrate([10, 50, 20]);
+            }
+        },
+
+        // Error pattern
+        error: () => {
+            if (hasHaptics()) {
+                navigator.vibrate([20, 30, 40, 30, 20]);
+            }
+        }
+    };
+</script> 
